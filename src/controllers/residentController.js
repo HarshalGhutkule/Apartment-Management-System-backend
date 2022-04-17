@@ -17,7 +17,7 @@ router.post("", authenticate, async (req, res) => {
         name: req.body.name,
         age: req.body.age,
         gender: req.body.gender,
-        apartmentName: req.body.apartmentName,
+        residenttype: req.body.residenttype,
         manager_id: user_id,
     });
 

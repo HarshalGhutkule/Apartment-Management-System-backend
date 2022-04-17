@@ -5,6 +5,7 @@ const {register,login} = require("./controllers/authController");
 const { body } = require('express-validator');
 const residentController = require("./controllers/residentController");
 const managerController = require("./controllers/managerController");
+const apartmentController = require("./controllers/apartmentController");
 
 const app = express();
 
@@ -23,6 +24,7 @@ register);
 app.post("/login", login);
 app.use("/resident", residentController);
 app.use("/manager", managerController);
+app.use("/apartment", apartmentController);
 
 app.listen(process.env.PORT || 3001, '0.0.0.0',async()=>{
     try{

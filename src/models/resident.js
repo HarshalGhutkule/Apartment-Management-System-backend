@@ -4,6 +4,7 @@ const residentSchema = new mongoose.Schema({
     name:{type:String, required:true},
     age:{type:Number, required:true},
     gender:{type:String,required:true,default:"Male"},
+    residenttype:{type:String,required:true,default:"Owner"},
     manager_id:{type:mongoose.Schema.Types.ObjectId, ref:"manager", required:true},
 },
 {
