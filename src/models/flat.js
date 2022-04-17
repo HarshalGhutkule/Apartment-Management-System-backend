@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const flatSchema = new mongoose.Schema({
     flatNumber:{type:Number, required:true},
-    block_id:{type:mongoose.Schema.Types.ObjectId, ref:"block", required:true},
-    apartment_id:{type:mongoose.Schema.Types.ObjectId, ref:"apartment", required:true},
+    resident_id:[{type:mongoose.Schema.Types.ObjectId, ref:"resident"}],
 },
 {
     versionKey:false,
