@@ -44,14 +44,6 @@ const login = async(req,res)=>{
 
         if(!match) return res.status(400).send({ message: "Please try another username & password" });
 
-        let manager = await Manager.findOne({userName:req.body.userName}).lean().exec();
-
-        const manager_id = manager._id;
-
-        let apartment = await Apartment.find({apartmentName:req.body.apartmentName}).lean().exec();
-
-        if(!apartment) Apartment.create({apartmentName:req.body.apartmentName,manager_id:manager_id,});
-
         const token = createToken(user);
 
         let status = "ok";
