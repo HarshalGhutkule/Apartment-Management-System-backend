@@ -12,7 +12,7 @@ app.get();
 app.listen(process.env.PORT || 3001, '0.0.0.0',async()=>{
     try{
         await connect()
-        console.log("Listning on port 8080");
+        console.log("Listning on port 3001");
     }
     catch(err){
         console.log(err);
