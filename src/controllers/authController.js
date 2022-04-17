@@ -1,4 +1,5 @@
 const Manager = require("../models/manager");
+const jwt = require("jsonwebtoken");
 const { validationResult } = require('express-validator');
 
 const createToken = (user)=>{

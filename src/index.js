@@ -3,6 +3,8 @@ const cors = require("cors");
 const connect = require("./configs/db");
 const {register,login} = require("./controllers/authController");
 const { body } = require('express-validator');
+const residentController = require("./controllers/residentController");
+const managerController = require("./controllers/managerController");
 
 const app = express();
 
@@ -19,6 +21,8 @@ body("password").isString().custom(async (value)=>{
 register);
 
 app.post("/login", login);
+app.use("/resident", residentController);
+app.use("/manager", managerController);
 
 app.listen(process.env.PORT || 3001, '0.0.0.0',async()=>{
     try{
