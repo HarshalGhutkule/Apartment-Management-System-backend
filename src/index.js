@@ -21,6 +21,7 @@ body("password").isString().custom(async (value)=>{
 }),
 register);
 
+
 app.post("/login", login);
 app.use("/resident", residentController);
 app.use("/manager", managerController);
