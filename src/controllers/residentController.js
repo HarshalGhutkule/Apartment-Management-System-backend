@@ -124,7 +124,25 @@ router.post("", authenticate, async(req,res)=>{
 
 router.get("/:id", residentController(Resident).getOne);
 
-router.patch("/:id", residentController(Resident).patch);
+router.patch("/:id", authenticate, async(req,res)=>{
+    try{
+        const user_id = req.user._id;
+        const resident = await Resident.findByIdAndUpdate(req.params.id,{
+            name: req.body.name,
+            age: req.body.age,
+            gender: req.body.gender,
+            apartmentName: req.body.apartmentName,
+            flatNumber: req.body.flatNumber,
+            blockName: req.body.blockName,
+            residenttype: req.body.residenttype,
+            manager_id: user_id,
+        },{new:true});
+        return res.status(200).send(resident);
+    }
+    catch(err){
+        return res.status(400).send(err.message);
+    }
+})
 
 router.delete("/:id", residentController(Resident).delete);
 
